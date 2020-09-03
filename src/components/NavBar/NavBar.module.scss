@@ -1,0 +1,62 @@
+@keyframes shake {
+  0% {
+    transform: rotate(0deg)
+  }
+  25% {
+    transform: rotate(20deg)
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+}
+
+.navBarContainer {
+  display: flex;
+  margin: 1rem;
+  justify-content: space-between;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  background-color: #5a8563;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.logoContainer:hover {
+  background-color: #cdbc66;
+  img{
+    animation: shake 5s ease-in-out;
+  }
+}
+
+
+.logoName {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
+  margin: 2em;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 1em;
+}
+
+.link {
+  text-decoration: none;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 15px;
+  color: #5a8563;
+  transition: 1s ease-in-out;
+}
+
+.link:visited {
+  color: #5a8563;
+}
+
+.link:hover {
+  transform: scale(1.2);
+}

@@ -1,0 +1,7 @@
+.cardContainer {
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 15px;
+    border: #5a8563 1px solid;
+    font-family: 'Righteous', cursive;
+}

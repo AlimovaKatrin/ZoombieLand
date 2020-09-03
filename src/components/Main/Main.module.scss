@@ -1,0 +1,46 @@
+.mainContainer {
+  font-family: 'Righteous', cursive;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #cdbc66;
+  border-radius: 15px;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.welcomeMsg {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #312d2d;
+  color: #5a8563;
+  border-radius: 15px;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  img {
+    margin: 1rem;
+    visibility: hidden;
+  }
+
+  ol {
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: #5a8563 1px solid;
+    border-radius: 15px;
+  }
+
+  ol:hover {
+    background-color: #5a8563;
+    border-radius: 15px;
+
+    img {
+      visibility: visible;
+    }
+  }
+}

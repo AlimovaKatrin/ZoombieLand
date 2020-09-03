@@ -1,0 +1,49 @@
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: #5a8563;
+  font-family: 'Righteous', cursive;
+}
+
+.list {
+  max-width: 40rem;
+
+  img {
+    visibility: hidden;
+  }
+
+  ol {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  ol:hover {
+    background-color: #cdbc66;
+    border-radius: 15px;
+
+    img {
+      visibility: visible;
+      padding: 1px;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: #cdbc66 1px solid;
+  border-radius: 15px;
+  padding: 1rem;
+  margin: 1rem;
+}
