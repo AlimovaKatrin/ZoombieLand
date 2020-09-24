@@ -7,10 +7,10 @@ export default function ({user}) {
         <div className={style.container}>
             <span>
             <strong> nikName: </strong>
-            {user.nikName}<br/>
+            {user}<br/>
             </span><br/>
             <span>
-            <strong> Hobby: </strong> {user.hobby}
+            <strong> Hobby: </strong> {user}
             </span>
         </div>
     )

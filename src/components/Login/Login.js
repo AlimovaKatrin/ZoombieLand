@@ -1,7 +1,10 @@
-import React, {useReducer, useRef} from "react";
+import React, {useEffect, useRef} from "react";
 import {useDispatch} from "react-redux";
 import {addCurrentUserAC} from "../../redux/actionCreators";
 import {useHistory} from 'react-router-dom';
+import style from './Login.module.scss';
+import TechCard from "../Cards/TechCard/TechCard";
+
 
 export default function () {
     const name = useRef(null);
@@ -34,12 +37,19 @@ export default function () {
     };
 
     return (
-        <div>
+        <div className={style.container}>
+            <div className={style.loginForm}>
+                <div>
+                    <input placeholder="nikName" ref={name}/>
+                    <input type="password" placeholder="password" ref={password}/>
+                </div>
+                <button onClick={Login}>Log In</button>
+            </div>
 
-            <input ref={name}/>
-            <input ref={password}/>
-            <button onClick={Login}>Log In</button>
-
+            <TechCard points={[
+                'Login page use redux and react-router-dom',
+                'useHistory to switch routing',
+                'useDispatch to set current user in redux store']} style={style}/>
         </div>
     )
 }

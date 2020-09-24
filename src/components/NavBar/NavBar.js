@@ -22,7 +22,7 @@ export default function () {
                     <AuthLink user={user}/>
                     <Link className={style.link} to="/info">Info</Link>
                 </div>
-                {user ? <NavBarCard user={user.current}/> : null}
+                {user ? <NavBarCard user={user}/> : null}
 
             </div>
         </>

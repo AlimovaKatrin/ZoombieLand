@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch,Redirect} from 'react-router-dom';
 
 import Info from './components/Info/Info';
 import Main from './components/Main/Main'
@@ -17,6 +17,9 @@ export default function () {
                 </Route>
                 <Route path="/login">
                     <Login/>
+                </Route>
+                <Route>
+                    <Redirect to="/main" />
                 </Route>
             </Switch>
         </div>
