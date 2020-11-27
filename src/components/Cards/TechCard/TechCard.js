@@ -1,14 +1,15 @@
-import React from 'react';
+import React, {memo} from 'react';
 
-export default function ({style, points}) {
+function TechCard({style, points}) {
     return (
         <ul className={style.list}>
-            <strong>What you need to know <br/> about this page:</strong>
+            <strong>What you need to know <br/> about this part:</strong>
             <br/>
-            {points ? points.map(point => <ol>
+            {points ? points.map((point, i) => <ol key={i}>
                 {point}
                 <img src="/zombie/icons8-zombie-hand-thumbs-up-64.png"/>
             </ol>) : null}
         </ul>
     )
 };
+export default memo(TechCard)

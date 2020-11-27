@@ -13,7 +13,8 @@ export default function (state = initialState, action) {
         }
         case
         ADD_CURRENT_USER: {
-            return {...state, currentUser: action.payload}
+            console.log(JSON.parse(action.payload))
+            return {...state, currentUser: JSON.parse(action.payload)}
         }
         default:
             return state

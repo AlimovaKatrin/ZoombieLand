@@ -1,9 +1,10 @@
-import React, {useEffect, useRef} from "react";
-import {useDispatch} from "react-redux";
-import {addCurrentUserAC} from "../../redux/actionCreators";
+import React, {useEffect, useRef} from 'react';
+import {useDispatch} from 'react-redux';
+import {addCurrentUserAC} from '../../redux/actionCreators';
 import {useHistory} from 'react-router-dom';
 import style from './Login.module.scss';
-import TechCard from "../Cards/TechCard/TechCard";
+import TechCard from '../Cards/TechCard/TechCard';
+import firebase from 'firebase/app';
 
 
 export default function () {
@@ -12,28 +13,23 @@ export default function () {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const Login = () => {
-        const loginName = name.current.value;
-        const loginPassword = password.current.value;
-        fetch('/login', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'Application/json'
-            },
-            body: JSON.stringify({
-                loginName,
-                loginPassword
+    const login = () => {
+        const loginName = '123456@mail.ru'
+        const loginPassword = '123456'
+        // const loginName = name.current.value;
+        // const loginPassword = password.current.value;
+        firebase.auth()
+            .signInWithEmailAndPassword(loginName, loginPassword)
+            .then(() => {
+                const user = firebase.auth().currentUser
+                if (user != null) {
+                    localStorage.setItem('firebase-user', JSON.stringify(user.providerData[0]))
+                    dispatch(addCurrentUserAC(JSON.stringify(user.providerData[0])))
+                }
             })
-        })
-            .then(res => res.json())
-            .then(user => {
-                dispatch(addCurrentUserAC(user))
-                history.push('/main')
-            })
-            .catch(err => {
-                console.log('uuups')
-                history.push('/register')
-            })
+            .catch((error) => {
+                console.log(error)
+            });
     };
 
     return (
@@ -43,7 +39,7 @@ export default function () {
                     <input placeholder="nikName" ref={name}/>
                     <input type="password" placeholder="password" ref={password}/>
                 </div>
-                <button onClick={Login}>Log In</button>
+                <button onClick={login}>Log In Firebase</button>
             </div>
 
             <TechCard points={[

@@ -12,10 +12,11 @@ export default function ({user}) {
         fetch('/logout')
             .then(res => {
                 dispatch(addCurrentUserAC(null))
+                localStorage.removeItem('firebase-user');
                 history.push('/login')
             })
             .catch(err => history.push('/main'))
     }
-    return user ? <a className={style.link} onClick={Logout}>Logout</a> :
+    return user ? <span className={style.link} onClick={Logout}>Logout</span> :
         <Link className={style.link} to="/login">Login</Link>
 }
