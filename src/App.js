@@ -11,12 +11,13 @@ function App() {
     const dispatch = useDispatch();
 
 
+
     useEffect(() => {
-        const socket = io('ws://localhost:4000');
-        socket.on('hello', (arg) => {
-            console.log(arg); // world
-        });
         const currentUser = localStorage.getItem('firebase-user');
+        const socket = io('ws://localhost:4000');
+
+        socket.emit('initUser', currentUser);
+
         if (currentUser) {
             dispatch(addCurrentUserAC(currentUser))
         }
