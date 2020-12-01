@@ -1,4 +1,4 @@
-import {ADD_USERS_LIST, ADD_CURRENT_USER} from "./actionTypes";
+import {ADD_USERS_LIST, ADD_CURRENT_USER} from './actionTypes';
 
 const initialState = {
     currentUser: null,
@@ -13,8 +13,7 @@ export default function (state = initialState, action) {
         }
         case
         ADD_CURRENT_USER: {
-            console.log(JSON.parse(action.payload))
-            return {...state, currentUser: JSON.parse(action.payload)}
+            return {...state, currentUser: action.payload}
         }
         default:
             return state

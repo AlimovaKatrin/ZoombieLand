@@ -3,15 +3,16 @@ import {useSelector} from "react-redux";
 import style from './Main.module.scss';
 import InfoMSG from './ifoMSG/InfoMessage';
 import TechCard from "../Cards/TechCard/TechCard";
+import UserCard from '../Cards/UserCard/UserCard';
 
 export default function () {
-    const user = useSelector(state => state.currentUser);
+    const [user,listOfUsers ]= useSelector(state => [state.currentUser,state.usersList]);
 
     //#1 list.map(user => <UserCard person={user}/>)
     return (
         <>
             <div className={style.mainContainer}>
-                {user ? '#1 here wil bee list of users that in system' : <InfoMSG/>}
+                {listOfUsers ? listOfUsers.map(el=><UserCard key={el} person={el} online={true}/>) : <InfoMSG/>}
                 {user ? null : <TechCard style={style} points={[
                     'This page use redux',
                     'After fetch we dispatch user list to redux store',

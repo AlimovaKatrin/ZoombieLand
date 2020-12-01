@@ -14,10 +14,10 @@ export default function () {
     const history = useHistory();
 
     const login = () => {
-        const loginName = '123456@mail.ru'
-        const loginPassword = '123456'
-        // const loginName = name.current.value;
-        // const loginPassword = password.current.value;
+        // const loginName = '123456@mail.ru'
+        // const loginPassword = '123456'
+        const loginName = name.current.value;
+        const loginPassword = password.current.value;
         firebase.auth()
             .signInWithEmailAndPassword(loginName, loginPassword)
             .then(() => {
