@@ -3,21 +3,18 @@ import Routing from './Routing';
 import NavBar from './components/NavBar/NavBar';
 import {useDispatch, useSelector} from 'react-redux';
 import {addCurrentUserAC, addUserlistAC} from './redux/actionCreators';
-import {io} from 'socket.io-client';
+import {useSocket} from './components/useSocket/useSocket';
 
 function App() {
     const dispatch = useDispatch();
-    const socket = useRef();
+    const {initUser} = useSocket();
 
     useEffect(() => {
-        socket.current = io('ws://localhost:4000');
         const currentUser = localStorage.getItem('firebase-user');
-        socket.current.on('userConnected', (user) => {
-                dispatch(addUserlistAC(user))
-        });
+
         if (currentUser) {
             dispatch(addCurrentUserAC(JSON.parse(currentUser)))
-            socket.current.emit('initUser', JSON.parse(currentUser));
+            initUser(JSON.parse(currentUser))
         }
     }, [dispatch]);
 

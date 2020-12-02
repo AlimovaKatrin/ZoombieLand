@@ -5,13 +5,14 @@ import {useHistory} from 'react-router-dom';
 import style from './Login.module.scss';
 import TechCard from '../Cards/TechCard/TechCard';
 import firebase from 'firebase/app';
-
+import {useSocket} from '../useSocket/useSocket';
 
 export default function () {
     const name = useRef(null);
     const password = useRef(null);
     const dispatch = useDispatch();
     const history = useHistory();
+    const {initUser}= useSocket();
 
     const login = () => {
         // const loginName = '123456@mail.ru'
@@ -24,7 +25,9 @@ export default function () {
                 const user = firebase.auth().currentUser
                 if (user != null) {
                     localStorage.setItem('firebase-user', JSON.stringify(user.providerData[0]))
-                    dispatch(addCurrentUserAC(JSON.stringify(user.providerData[0])))
+                    dispatch(addCurrentUserAC(user.providerData[0]))
+                    initUser(user.providerData[0])
+                    history.push('/main')
                 }
             })
             .catch((error) => {
