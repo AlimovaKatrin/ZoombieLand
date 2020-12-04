@@ -27,7 +27,7 @@ export default function () {
                     localStorage.setItem('firebase-user', JSON.stringify(user.providerData[0]))
                     dispatch(addCurrentUserAC(user.providerData[0]))
                     initUser(user.providerData[0])
-                    history.push('/main')
+                    history.push('/')
                 }
             })
             .catch((error) => {

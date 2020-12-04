@@ -15,10 +15,9 @@ export default function () {
                 {listOfUsers ? listOfUsers.map(el=><UserCard key={el} person={el} online={true}/>) : <InfoMSG/>}
                 {user ? null : <TechCard style={style} points={[
                     'This page use redux',
-                    'After fetch we dispatch user list to redux store',
-                    'List of registered users taken from redux store',
-                    'Current user also comes from redux store',
-                    'if u see this messages you are not registered'
+                    'We get list of users that are online from web socket',
+                    'List of online users took from store',
+                    'if u see this messages you are not authenticated'
                 ]}/>}
             </div>
         </>

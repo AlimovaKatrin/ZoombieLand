@@ -18,7 +18,7 @@ export default function () {
                     </div>
                 </div>
                 <div className={style.linkList}>
-                    <Link className={style.link} to="/main">Main</Link>
+                    <Link className={style.link} to="/">Main</Link>
                     <AuthLink user={user}/>
                 </div>
                 {user ? <NavBarCard user={user}/> : null}

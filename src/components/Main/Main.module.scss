@@ -44,4 +44,12 @@
       visibility: visible;
     }
   }
+    .special:hover{
+    background-color: #e5aa76;
+    border-radius: 15px;
+
+    img {
+      visibility: hidden;
+    }
+  }
 }

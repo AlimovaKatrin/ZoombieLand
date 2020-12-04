@@ -7,7 +7,7 @@ export default function () {
     return (
         <div>
             <Switch>
-                <Route path="/main">
+                <Route exact path="/">
                     <Main/>
                 </Route>
                 <Route path="/login">

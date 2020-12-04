@@ -18,7 +18,7 @@ export default function ({user}) {
                 localStorage.removeItem('firebase-user');
                 history.push('/login')
             })
-            .catch(err => history.push('/main'))
+            .catch(err => history.push('/'))
     }
     return user ? <span className={style.link} onClick={Logout}>Logout</span> :
         <Link className={style.link} to="/login">Login</Link>
