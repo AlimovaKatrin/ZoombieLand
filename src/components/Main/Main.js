@@ -12,7 +12,7 @@ export default function () {
     return (
         <>
             <div className={style.mainContainer}>
-                {listOfUsers ? listOfUsers.map(el=><UserCard key={el} person={el} online={true}/>) : <InfoMSG/>}
+                {user ? listOfUsers.map(el=><UserCard key={el} person={el} online={true}/>) : <InfoMSG/>}
                 {user ? null : <TechCard style={style} points={[
                     'This page use redux',
                     'We get list of users that are online from web socket',

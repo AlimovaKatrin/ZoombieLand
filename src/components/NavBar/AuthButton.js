@@ -21,5 +21,8 @@ export default function ({user}) {
             .catch(err => history.push('/'))
     }
     return user ? <span className={style.link} onClick={Logout}>Logout</span> :
-        <Link className={style.link} to="/login">Login</Link>
+        <>
+            <Link className={style.link} to="/login">Login</Link>
+            <Link className={style.link} to="/reg">Register</Link>
+        </>
 }

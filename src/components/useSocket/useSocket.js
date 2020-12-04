@@ -15,7 +15,7 @@ export const useSocket = () => {
         socket.current.on('userConnected', (userList) => {
             dispatch(addUserlistAC(currentUser ? userList.filter(el => el !== currentUser.email) : userList))
         });
-        // return () => socket.current.disconnect()
+        return () => socket.current.disconnect()
     }, [])
 
     const initUser = (currentUser) => {

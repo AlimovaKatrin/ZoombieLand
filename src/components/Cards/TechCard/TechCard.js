@@ -3,7 +3,7 @@ import React, {memo} from 'react';
 function TechCard({style, points}) {
     return (
         <ul className={style.list}>
-            <ol className={style.special}>
+            <ol>
             <strong>What you need to know <br/> about this part:</strong>
             </ol>
             {points ? points.map((point, i) => <ol key={i}>

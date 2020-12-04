@@ -2,6 +2,7 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Main from './components/Main/Main'
 import Login from './components/Login/Login';
+import SignUp from './components/SignUp/SignUp';
 
 export default function () {
     return (
@@ -12,6 +13,9 @@ export default function () {
                 </Route>
                 <Route path="/login">
                     <Login/>
+                </Route>
+                <Route path="/reg">
+                    <SignUp/>
                 </Route>
             </Switch>
         </div>
